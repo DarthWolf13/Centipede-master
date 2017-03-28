@@ -30,13 +30,13 @@ namespace Centipede
         {
             base.HandleInput(inputHelper);
 
-            if (inputHelper.IsKeyDown(Keys.Left) || this.position.X + this.sprite.Width > Centipede.Screen.X)
+            if (inputHelper.IsKeyDown(Keys.Left) && this.position.X > 0)
                 this.Velocity = new Vector2(-speed, 0);
-            else if (inputHelper.IsKeyDown(Keys.Right) || this.position.X < 0)
+            else if (inputHelper.IsKeyDown(Keys.Right) && this.position.X + this.Width < Centipede.Screen.X)
                 this.Velocity = new Vector2(speed, 0);
-            else if (inputHelper.IsKeyDown(Keys.Up) || this.position.Y + this.sprite.Height > Centipede.Screen.Y)
+            else if (inputHelper.IsKeyDown(Keys.Up) && this.position.Y > 0)
                 this.Velocity = new Vector2(0, -speed);
-            else if (inputHelper.IsKeyDown(Keys.Down) || this.position.Y < 0)
+            else if (inputHelper.IsKeyDown(Keys.Down) && this.position.Y + this.Height < Centipede.Screen.Y)
                 this.Velocity = new Vector2(0, speed);
             else this.Velocity = Vector2.Zero;
 
